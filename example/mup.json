@@ -5,6 +5,7 @@
       "host": "hostname",
       "username": "root",
       "password": "password",
+      "os": "centos",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
@@ -26,6 +27,11 @@
   // This is the same as the line below.
   "app": "/Users/arunoda/Meteor/my-app",
 
+  // Location of app (remote directory). This can reference '~' as the user home directory.
+  // i.e., "appRemote": "~/Meteor",
+  // This is the same as the line below.
+  "appRemote": "/home/arunoda/Meteor",
+
   // Configure environment
   // ROOT_URL must be set to your correct domain (https or http)
   "env": {
@@ -37,7 +43,7 @@
   // Before mup checks that, it will wait for the number of seconds configured below.
   "deployCheckWaitTime": 15,
 
-  // show a progress bar while uploading. 
+  // show a progress bar while uploading.
   // Make it false when you deploy using a CI box.
   "enableUploadProgressBar": true
 }
