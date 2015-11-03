@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APPNAME=<%= appName %>
-APP_PATH=/opt/$APPNAME
+APP_PATH=<%= appRemote %>/$APPNAME
 BUNDLE_PATH=$APP_PATH/current
 ENV_FILE=$APP_PATH/config/env.list
 PORT=<%= port %>
@@ -50,8 +50,8 @@ fi
   docker run \
     -d \
     --restart=always \
-    --volume=/opt/$APPNAME/config/bundle.crt:/bundle.crt \
-    --volume=/opt/$APPNAME/config/private.key:/private.key \
+    --volume=<%= appRemote %>/$APPNAME/config/bundle.crt:/bundle.crt \
+    --volume=<%= appRemote %>/$APPNAME/config/private.key:/private.key \
     --link=$APPNAME:backend \
     --publish=<%= sslConfig.port %>:443 \
     --name=$APPNAME-frontend \
