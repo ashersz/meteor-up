@@ -4,6 +4,8 @@ APPNAME=<%= appName %>
 APP_PATH=<%= appRemote %>/$APPNAME
 BUNDLE_PATH=$APP_PATH/current
 ENV_FILE=$APP_PATH/config/env.list
+echo "env_file=$ENV_FILE"
+echo "current folder=`pwd`"
 PORT=<%= port %>
 USE_LOCAL_MONGO=<%= useLocalMongo? "1" : "0" %>
 
