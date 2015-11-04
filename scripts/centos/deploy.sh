@@ -28,7 +28,7 @@ fi
 
 # setup the new version
 sudo mkdir current
-sudo cp tmp/bundle.tar.gz current/
+sudo cp bundle.tar.gz current/
 
 # We temporarly stopped the binary building
 # Instead we are building for linux 64 from locally
@@ -53,4 +53,4 @@ sudo cp tmp/bundle.tar.gz current/
 # cd ..
 
 # start app
-sudo bash config/start.sh
+sudo -u {$USER} bash config/start.sh
