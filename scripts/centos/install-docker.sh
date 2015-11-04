@@ -21,5 +21,7 @@ if [ ! "$haveDocker" ]; then
   # Install docker
   #wget -qO- https://get.docker.com/ | sudo sh
   curl -sSL https://get.docker.com/ | sudo sh
+  sudo service docker start
+  sudo chkconfig docker on
   echo "I am here 4"
 fi
