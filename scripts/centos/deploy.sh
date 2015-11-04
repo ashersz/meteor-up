@@ -53,4 +53,4 @@ sudo cp bundle.tar.gz current/
 # cd ..
 
 # start app
-sudo -u {$USER} bash config/start.sh
+sudo -u ${USER} bash config/start.sh
