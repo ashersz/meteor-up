@@ -7,6 +7,7 @@ ENV_FILE=$APP_PATH/config/env.list
 echo "env_file=$ENV_FILE"
 echo "current folder=`pwd`"
 PORT=<%= port %>
+echo "port=$PORT"
 USE_LOCAL_MONGO=<%= useLocalMongo? "1" : "0" %>
 
 # Remove previous version of the app, if exists
@@ -36,7 +37,7 @@ else
   docker run \
     -d \
     --restart=always \
-    --publish=$PORT:80 \
+    --publish=$PORT:$PORT \
     --volume=$BUNDLE_PATH:/bundle \
     --hostname="$HOSTNAME-$APPNAME" \
     --env-file=$ENV_FILE \
