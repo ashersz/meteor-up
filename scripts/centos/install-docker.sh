@@ -16,7 +16,7 @@ if [ ! "$haveDocker" ]; then
   set -e
   echo "I am here 2"
   # Required to update system
-  sudo yum update
+  sudo yum update -y
   echo "I am here 3"
   # Install docker
   #wget -qO- https://get.docker.com/ | sudo sh
