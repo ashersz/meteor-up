@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Is docker already installed?
-echo "I am here 1"
 set +e
 haveDocker=$(docker version | grep "version")
 set -e
