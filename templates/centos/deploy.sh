@@ -82,7 +82,7 @@ cd ${TMP_DIR}
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
 sudo chmod -R +x *
-sudo chown -R ${USER} ${BUNDLE_DIR}
+sudo chown -R ${USER}:${USER} ${BUNDLE_DIR}
 
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
@@ -128,14 +128,16 @@ echo "Waiting for MongoDB to initialize. (30 sec.)"
 wait-for-mongo ${MONGO_URL} 30000
 
 # restart app
-sudo stop <%= appName %> || :
-sudo start <%= appName %> || :
+#sudo stop <%= appName %> || :
+#sudo start <%= appName %> || :
+sudo kill `cat <%= appRemote %>/<%= appName %>/<%= appName %>.pid`
+sudo -u ${USER} bash config/start.sh
 
 echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
 sleep <%= deployCheckWaitTime %>
 
 echo "Checking is app booted or not?"
-curl localhost:${PORT} || revert_app
+#curl localhost:${PORT} || revert_app
 
 # chown to support dumping heapdump and etc
 sudo chown -R meteoruser app
