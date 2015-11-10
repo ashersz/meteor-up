@@ -132,7 +132,9 @@ wait-for-mongo ${MONGO_URL} 30000
 #sudo start <%= appName %> || :
 PIDFILE=<%= appRemote %>/<%= appName %>/<%= appName %>.pid
 if [[ -f ${PIDFILE} ]]; then
+  set +e
   sudo kill `cat <%= appRemote %>/<%= appName %>/<%= appName %>.pid`
+  set -e
 fi
 sudo -u ${USER} bash config/start.sh
 
