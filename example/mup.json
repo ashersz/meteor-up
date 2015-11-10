@@ -4,7 +4,8 @@
     {
       "host": "hostname",
       "username": "root",
-      "password": "password"
+      "password": "password",
+      "os": "linux", // centos,linux (ubuntu),sunos
       // or pem file (ssh based authentication)
       //"pem": "~/.ssh/id_rsa"
     }
@@ -16,13 +17,13 @@
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
 
-  // WARNING: If nodeVersion omitted will setup 0.10.36 by default. Do not use v, only version number.
-  "nodeVersion": "0.10.36",
+  // WARNING: If nodeVersion omitted will setup 0.10.40 by default. Do not use v, only version number.
+  "nodeVersion": "0.10.40",
 
   // Install PhantomJS in the server
   "setupPhantom": true,
 
-  // Show a progress bar during the upload of the bundle to the server. 
+  // Show a progress bar during the upload of the bundle to the server.
   // Might cause an error in some rare cases if set to true, for instance in Shippable CI
   "enableUploadProgressBar": true,
 
@@ -31,6 +32,11 @@
 
   // Location of app (local directory)
   "app": "/path/to/the/app",
+
+  // Location of app (remote directory). This can reference '~' as the user home directory.
+  // i.e., "appRemote": "~/Meteor",
+  // This is the same as the line below.
+  "appRemote": "/home/username/Meteor",
 
   // Configure environment
   "env": {
