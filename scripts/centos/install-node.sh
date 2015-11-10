@@ -17,8 +17,10 @@ sudo yum -y install gcc gcc-c++ wget
 
 cd /tmp
 wget http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}.tar.gz
-tar xvzf node-v${NODE_VERSION} && cd node-v*
+tar xvzf node-v${NODE_VERSION}.tar.gz && cd node-v${NODE_VERSION}
 ./configure
 make
 sudo make install
 echo `node --version`
+#install npm
+sudo yum install npm -y
