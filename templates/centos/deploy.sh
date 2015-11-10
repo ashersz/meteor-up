@@ -130,7 +130,10 @@ wait-for-mongo ${MONGO_URL} 30000
 # restart app
 #sudo stop <%= appName %> || :
 #sudo start <%= appName %> || :
-sudo kill `cat <%= appRemote %>/<%= appName %>/<%= appName %>.pid`
+PIDFILE=<%= appRemote %>/<%= appName %>/<%= appName %>.pid
+if [[ -f ${PIDFILE} ]]; then
+  sudo kill `cat <%= appRemote %>/<%= appName %>/<%= appName %>.pid`
+fi
 sudo -u ${USER} bash config/start.sh
 
 echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
