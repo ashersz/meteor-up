@@ -128,21 +128,14 @@ echo "Waiting for MongoDB to initialize. (30 sec.)"
 wait-for-mongo ${MONGO_URL} 30000
 
 # restart app
-#sudo stop <%= appName %> || :
-#sudo start <%= appName %> || :
-PIDFILE=<%= appRemote %>/<%= appName %>/<%= appName %>.pid
-if [[ -f ${PIDFILE} ]]; then
-  set +e
-  sudo kill `cat <%= appRemote %>/<%= appName %>/<%= appName %>.pid`
-  set -e
-fi
+sudo -u ${USER} bash config/stop.sh
 sudo -u ${USER} bash config/start.sh
 
 echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
 sleep <%= deployCheckWaitTime %>
 
 echo "Checking is app booted or not?"
-#curl localhost:${PORT} || revert_app
+curl localhost:${PORT} || revert_app
 
 # chown to support dumping heapdump and etc
 sudo chown -R meteoruser app
