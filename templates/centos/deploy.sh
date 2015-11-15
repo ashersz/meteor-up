@@ -33,6 +33,7 @@ sudo mv tmp/bundle app
 
 
 sudo mv ${APP_HOME}/<%= appName %>.service /etc/systemd/system
+sudo touch ${LOG_FILE}
 
 sudo chown -R <%= appUser %>:<%= appUser %> ${APP_HOME}
 sudo chown -R <%= appUser %>:<%= appUser %> ${LOG_FILE}
