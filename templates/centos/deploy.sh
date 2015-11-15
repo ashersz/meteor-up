@@ -14,7 +14,7 @@ sudo chmod -R +x *
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
 # install npm dependencies
-npm install
+sudo npm install
 exit
 
 cd ${APP_HOME}
