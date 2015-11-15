@@ -13,6 +13,8 @@ revert_app (){
     exit 1
   fi
 }
+sudo chown -R <%= appUser %>:<%= appUser %> ${APP_HOME}
+
 #reload env variables
 . <%= appRemote %>/<%= appName %>/config/env.sh
 # restart daemon
