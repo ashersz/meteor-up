@@ -38,10 +38,10 @@
   // This is the same as the line below.
   "appRemote": "/home/username/Meteor",
 
-  // Location of logs for app on (remote directory).
+  // Location of log for app on (remote directory).
   // full real path needed. no ~,
   // This is the same as the line below.
-  "appLogs": "/home/username/Meteor/logs",
+  "appLog": "/home/username/Meteor/log",
 
   // Configure environment
   "env": {
