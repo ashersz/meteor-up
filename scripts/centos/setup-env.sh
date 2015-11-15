@@ -5,7 +5,7 @@ sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
 # Creating a system user
 sudo useradd -r <%= appUser %>
 
-sudo chown -R ${USER}:${USER} <%= appRemote %>/<%= appName %>
+#sudo chown -R ${USER}:${USER} <%= appRemote %>/<%= appName %>
 touch <%= appLog %>/meteor.log
 sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>/meteor.log
 
