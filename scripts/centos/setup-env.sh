@@ -2,9 +2,12 @@ sudo mkdir -p <%= appRemote %>/<%= appName %>/
 sudo mkdir -p <%= appRemote %>/<%= appName %>/config
 sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
 
-sudo chown ${USER}:${USER} <%= appRemote %>/<%= appName %> -R
-#sudo chown ${USER} /etc/init
-sudo npm install -g forever userdown wait-for-mongo node-gyp
+# Creating a system user
+sudo useradd -r <%= appUser %>
 
-# Creating a non-privileged user
-sudo useradd meteoruser || :
+sudo chown -R ${USER}:${USER} <%= appRemote %>/<%= appName %>
+sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>/meteor.log
+
+# install firewalld
+sudo yum install firewalld -y
+#sudo npm install -g forever userdown wait-for-mongo node-gyp
