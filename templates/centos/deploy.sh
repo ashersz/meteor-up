@@ -15,7 +15,6 @@ sudo chmod -R +x *
 cd ${BUNDLE_DIR}/programs/server
 # install npm dependencies
 sudo npm install
-exit
 
 cd ${APP_HOME}
 
