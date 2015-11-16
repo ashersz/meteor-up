@@ -6,11 +6,11 @@ sudo mkdir -p <%= appRemote %>/<%= appName %>/
 sudo mkdir -p <%= appRemote %>/<%= appName %>/config
 sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
 
-# Creating a system user
-sudo useradd -r <%= appUser %>
+# Creating the app user
+sudo useradd <%= appUser %>
 
 #sudo chown -R ${USER}:${USER} <%= appRemote %>/<%= appName %>
-touch <%= appLog %>/meteor.log
+sudo touch <%= appLog %>/meteor.log
 sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>/meteor.log
 
 # install firewalld
