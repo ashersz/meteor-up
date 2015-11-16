@@ -17,6 +17,7 @@ sudo yum -y install gcc gcc-c++ wget
 sudo yum install npm nodejs -y
 #install nvm, make node available for all user under /usr/local/bin/node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+source ~/.bash_profile
 nvm install v$NODE_VERSION
 nvm alias default v$NODE_VERSION
-n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
+n=$(which node);n=${n%/bin/node}; sudo chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
