@@ -1,3 +1,7 @@
+#!/bin/bash
+
+sudo yum install epel-release -y
+
 sudo mkdir -p <%= appRemote %>/<%= appName %>/
 sudo mkdir -p <%= appRemote %>/<%= appName %>/config
 sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
