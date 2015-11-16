@@ -23,6 +23,7 @@ if [ "<%= appPort %>" == "3000" ]; then
     sudo firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=3000
 fi;
 sudo systemctl enable firewalld
+sudo systemctl restart firewalld
 #sudo npm install -g forever userdown wait-for-mongo node-gyp
 
 # allow appUser to run the appName service
