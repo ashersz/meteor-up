@@ -13,10 +13,11 @@ revert_app (){
     exit 1
   fi
 }
+APP_HOME=<%= appRemote %>/<%= appName %>
 sudo chown -R <%= appUser %>:<%= appUser %> ${APP_HOME}
 
 #reload env variables
-. <%= appRemote %>/<%= appName %>/config/env.sh
+. ${APP_HOME}/config/env.sh
 # restart daemon
 sudo systemctl daemon-reload
 sudo systemctl enable <%= appName %>.service
