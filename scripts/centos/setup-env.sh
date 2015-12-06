@@ -10,8 +10,8 @@ sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
 sudo useradd <%= appUser %>
 
 #sudo chown -R ${USER}:${USER} <%= appRemote %>/<%= appName %>
-sudo touch <%= appLog %>/meteor.log
-sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>/meteor.log
+sudo touch <%= appLog %>
+sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>
 
 # install firewalld
 sudo yum install firewalld -y

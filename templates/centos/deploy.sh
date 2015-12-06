@@ -4,7 +4,7 @@ set -e
 APP_HOME=<%= appRemote %>/<%= appName %>
 TMP_DIR=${APP_HOME}/tmp
 BUNDLE_DIR=${TMP_DIR}/bundle
-LOG_FILE=<%= appLog %>/meteor.log
+LOG_FILE=<%= appLog %>
 
 cd ${TMP_DIR}
 sudo rm -rf bundle
