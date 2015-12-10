@@ -15,6 +15,8 @@ sudo chown <%= appUser %>:<%= appUser %> <%= appLog %>
 
 # install firewalld
 sudo yum install firewalld -y
+#install GraphicsMagick
+yum install GraphicsMagick -y
 # open appPort, if 3000 redirect 80 to 3000, open 27017 or mongo port todo
 sudo systemctl start firewalld.service
 sudo firewall-cmd --permanent --add-port=<%= appPort %>/tcp
