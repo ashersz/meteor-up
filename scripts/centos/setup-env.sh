@@ -21,6 +21,8 @@ yum install GraphicsMagick -y
 sudo systemctl start firewalld.service
 sudo firewall-cmd --permanent --add-port=<%= appPort %>/tcp
 sudo firewall-cmd --permanent --add-port=27017/tcp
+sudo firewall-cmd --permanent --add-port=27021/tcp
+sudo firewall-cmd --permanent --add-port=40022/tcp
 if [ "<%= appPort %>" == "3000" ]; then
     sudo firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=3000
 fi;
