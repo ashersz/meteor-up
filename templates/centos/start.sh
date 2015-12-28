@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # utilities
 revert_app (){
-  if [[ -d old_app ]]; then
+  if [[ -d $APP_HOME/old_app ]]; then
     sudo rm -rf app
     sudo mv old_app app
     sudo systemctl restart <%= appName %>.service
@@ -20,8 +20,14 @@ sudo chown -R <%= appUser %>:<%= appUser %> ${APP_HOME}
 . ${APP_HOME}/config/env.sh
 # restart daemon
 sudo systemctl daemon-reload
-sudo systemctl enable <%= appName %>.service
-sudo systemctl start <%= appName %>.service
+if [[ -d $APP_HOME/old_app ]]; then
+  echo "restarting <%= appName %>.service"
+    sudo systemctl restart <%= appName %>.service
+else
+  echo "enabling and starting <%= appName %>.service"
+  sudo systemctl enable <%= appName %>.service
+  sudo systemctl start <%= appName %>.service
+fi
 
 echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
 sleep <%= deployCheckWaitTime %>
