@@ -41,7 +41,12 @@
   // Location of log for app on (remote directory).
   // full real path needed. no ~,
   // This is the same as the line below.
-  "appLog": "/home/username/Meteor/log",
+  "appLog": "/home/username/Meteor/log/meteor.log",
+
+  // build environment
+  "build_env":{
+    "LESS_GLOBALVARS":{"less_cdnTomcat":"'apistaging.curiyo.com'"}
+  },
 
   // Configure environment
   "env": {
