@@ -12,7 +12,7 @@ var settingsFileName = cliOptions.settings || 'settings.json';
 require('colors');
 require('../lib/update_notifier.js');
 
-console.log('\nMeteor Up: Production Quality Meteor Deployments'.bold.blue);
+console.log('\nMeteor UpX: Production Quality Meteor Deployments'.bold.blue);
 console.log('------------------------------------------------'.bold.blue);
 console.log('\nforked by Asher Szmulewicz for Centos7'.bold.blue);
 
