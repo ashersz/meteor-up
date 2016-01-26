@@ -3,6 +3,7 @@
 APPNAME=<%= appName %>
 APP_PATH=<%= appRemote %>/$APPNAME
 BUNDLE_PATH=$APP_PATH/current
+LOG_PATH=$APP_PATH/logs
 ENV_FILE=$APP_PATH/config/env.list
 echo "env_file=$ENV_FILE"
 echo "current folder=`pwd`"
@@ -39,6 +40,7 @@ else
     --restart=always \
     --publish=$PORT:$PORT \
     --volume=$BUNDLE_PATH:/bundle \
+    --volume=$LOG_PATH:/logs \
     --hostname="$HOSTNAME-$APPNAME" \
     --env-file=$ENV_FILE \
     --name=$APPNAME \
