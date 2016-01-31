@@ -10,6 +10,7 @@ echo "current folder=`pwd`"
 PORT=<%= port %>
 echo "port=$PORT"
 USE_LOCAL_MONGO=<%= useLocalMongo? "1" : "0" %>
+USE_LOCAL_NET=<%= useLocalNet? "1" : "0" %>
 
 # Remove previous version of the app, if exists
 docker rm -f $APPNAME
@@ -35,16 +36,29 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
     --name=$APPNAME \
     meteorhacks/meteord:base
 else
-  docker run \
+  if [ "$USE_LOCAL_NET" == "1" ]; then
+    docker run \
     -d \
     --restart=always \
-    --publish=$PORT:$PORT \
+    --net=host \
+    --publish="127.0.0.1:$PORT:$PORT" \
     --volume=$BUNDLE_PATH:/bundle \
     --volume=$LOG_PATH:/logs \
-    --hostname="$HOSTNAME-$APPNAME" \
     --env-file=$ENV_FILE \
     --name=$APPNAME \
     meteorhacks/meteord:base
+  else
+    docker run \
+      -d \
+      --restart=always \
+      --publish=$PORT:$PORT \
+      --volume=$BUNDLE_PATH:/bundle \
+      --volume=$LOG_PATH:/logs \
+      --hostname="$HOSTNAME-$APPNAME" \
+      --env-file=$ENV_FILE \
+      --name=$APPNAME \
+      meteorhacks/meteord:base
+  fi
 fi
 
 <% if(typeof sslConfig === "object")  { %>
