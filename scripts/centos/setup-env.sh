@@ -3,6 +3,7 @@
 sudo mkdir -p <%= appRemote %>/<%= appName %>/
 sudo mkdir -p <%= appRemote %>/<%= appName %>/config
 sudo mkdir -p <%= appRemote %>/<%= appName %>/tmp
+sudo mkdir -p <%= appRemote %>/<%= appName %>/logs
 sudo mkdir -p <%= appRemote %>/mongodb
 
 sudo  chown ${USER}:${USER} <%= appRemote %>/<%= appName %> -R
