@@ -19,6 +19,9 @@
   // Install MongoDB on the server. Does not destroy the local MongoDB on future setups
   "setupMongo": true,
 
+  // Use local network in docker, to allow multiple dockers with different ports on same machine
+  "useLocalNetwork": false,
+
   // Application name (no spaces).
   "appName": "meteor",
 
