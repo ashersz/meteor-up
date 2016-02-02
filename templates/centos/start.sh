@@ -10,7 +10,8 @@ echo "current folder=`pwd`"
 PORT=<%= port %>
 echo "port=$PORT"
 USE_LOCAL_MONGO=<%= useLocalMongo? "1" : "0" %>
-USE_LOCAL_NET=<%= useLocalNet? "1" : "0" %>
+USE_LOCAL_NETWORK=<%= useLocalNetwork? "1" : "0" %>
+echo "use_local_network=$USE_LOCAL_NETWORK"
 
 # Remove previous version of the app, if exists
 docker rm -f $APPNAME
@@ -36,7 +37,7 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
     --name=$APPNAME \
     curiyo/meteord:base
 else
-  if [ "$USE_LOCAL_NET" == "1" ]; then
+  if [ "$USE_LOCAL_NETWORK" == "1" ]; then
     docker run \
     -d \
     --restart=always \
